@@ -1,0 +1,38 @@
+From: Shengjing Zhu <zhsj@debian.org>
+Date: Sun, 13 Dec 2020 23:22:21 +0800
+Subject: use local googletest src
+
+Forwarded: not-needed
+---
+ CMakeLists.txt                     | 2 +-
+ cmake/googletest.CMakeLists.txt.in | 4 +---
+ 2 files changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f9daeac..e02e841 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -214,7 +214,7 @@ if(BUILD_TESTING)
+ 
+     # Add googletest directly to our build. This defines the gtest and
+     # gtest_main targets.
+-    add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
++    add_subdirectory(/usr/src/googletest
+                      ${CMAKE_BINARY_DIR}/googletest-build
+                      EXCLUDE_FROM_ALL)
+   endif()
+diff --git a/cmake/googletest.CMakeLists.txt.in b/cmake/googletest.CMakeLists.txt.in
+index d60a33e..e52b102 100644
+--- a/cmake/googletest.CMakeLists.txt.in
++++ b/cmake/googletest.CMakeLists.txt.in
+@@ -4,9 +4,7 @@ project(googletest-download NONE)
+ 
+ include(ExternalProject)
+ ExternalProject_Add(googletest
+-  GIT_REPOSITORY    https://github.com/google/googletest.git
+-  GIT_TAG           master
+-  SOURCE_DIR        "${CMAKE_BINARY_DIR}/googletest-src"
++  SOURCE_DIR        "/usr/src/googletest"
+   BINARY_DIR        "${CMAKE_BINARY_DIR}/googletest-build"
+   CONFIGURE_COMMAND ""
+   BUILD_COMMAND     ""

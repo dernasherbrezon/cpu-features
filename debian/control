@@ -1,0 +1,40 @@
+Source: cpu-features
+Section: libdevel
+Priority: optional
+Maintainer: Shengjing Zhu <zhsj@debian.org>
+Rules-Requires-Root: no
+Build-Depends:
+ cmake,
+ debhelper-compat (= 13),
+ googletest,
+Standards-Version: 4.5.1
+Homepage: https://github.com/google/cpu_features
+Vcs-Git: https://salsa.debian.org/zhsj/cpu-features.git
+Vcs-Browser: https://salsa.debian.org/zhsj/cpu-features
+
+Package: libcpu-features-dev
+Architecture: amd64 arm64 armel armhf i386 mips64el mipsel powerpc ppc64 ppc64el x32
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Multi-Arch: same
+Breaks:
+ libvolk2-dev (<< 2.4.1-2),
+Replaces:
+ libvolk2-dev (<< 2.4.1-2),
+Description: cross platform C99 library to get cpu features
+ Cross-platform C library to retrieve CPU features(such as available
+ instructions) at runtime.
+ .
+ Design rationale:
+ .
+  * Simple to use.
+  * Extensible. Easy to add missing features or architectures.
+  * Compatible with old compilers and available on many architectures so it
+    can be used widely. It's implemented it in C99.
+  * Sandbox-compatible. The library uses a variety of strategies to cope with
+    sandboxed environments or when cpuid is unavailable.
+  * Thread safe, no memory allocation, and raises no exceptions. cpu_features
+    is suitable for implementing fundamental libc functions like malloc,
+    memcpy, and memcmp.
+  * Unit tested.

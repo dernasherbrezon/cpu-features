@@ -1,0 +1,21 @@
+From: Shengjing Zhu <zhsj@debian.org>
+Date: Sat, 26 Dec 2020 17:32:28 +0800
+Subject: not install list_cpu_features
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index e02e841..b9bc099 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -227,7 +227,7 @@ endif()
+ #
+ 
+ include(GNUInstallDirs)
+-install(TARGETS cpu_features list_cpu_features
++install(TARGETS cpu_features
+   EXPORT CpuFeaturesTargets
+   PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/cpu_features
+   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}

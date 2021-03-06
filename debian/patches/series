@@ -1,0 +1,3 @@
+0001-use-local-googletest-src.patch
+0002-not-install-list_cpu_features.patch
+0003-Expose-internal-headers.patch

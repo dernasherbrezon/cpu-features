@@ -1,0 +1,22 @@
+cpu-features (0.6.0-3) unstable; urgency=medium
+
+  * Add Multi-Arch hint
+  * Add Breaks and Replaces to libvolk2-dev (Closes: #978097)
+  * Add powerpc to Architecture
+  * Add x32 to Architecture
+  * Expose internal headers.
+    One internal header is used in ppc public header
+
+ -- Shengjing Zhu <zhsj@debian.org>  Tue, 29 Dec 2020 02:11:14 +0800
+
+cpu-features (0.6.0-2) unstable; urgency=medium
+
+  * Not install list_cpu_features in cmake target
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sat, 26 Dec 2020 17:33:12 +0800
+
+cpu-features (0.6.0-1) unstable; urgency=medium
+
+  * Initial release. (Closes: #977274)
+
+ -- Shengjing Zhu <zhsj@debian.org>  Sun, 13 Dec 2020 22:49:44 +0800

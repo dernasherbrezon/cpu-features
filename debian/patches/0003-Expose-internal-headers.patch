@@ -1,0 +1,26 @@
+From: Shengjing Zhu <zhsj@debian.org>
+Date: Tue, 29 Dec 2020 02:10:19 +0800
+Subject: Expose internal headers
+
+Bug: https://github.com/google/cpu_features/issues/151
+---
+ CMakeLists.txt | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b9bc099..9a6dcca 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -257,3 +257,12 @@ install(
+   DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/CpuFeatures"
+   COMPONENT Devel
+ )
++
++if(PROCESSOR_IS_POWER)
++  install(
++    FILES
++      "${PROJECT_SOURCE_DIR}/include/internal/hwcaps.h"
++    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/cpu_features/internal"
++    COMPONENT Devel
++  )
++endif()
